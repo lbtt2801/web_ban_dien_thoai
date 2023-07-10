@@ -1,0 +1,43 @@
+﻿@model Nhom7_WebsiteBanDienThoaiDiDongVaPhuKien.Models.SANPHAM
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <br /><br />
+    <h2>CHI TIẾT SẢN PHẨM</h2>
+    <div class="card border-dark">
+        <table class="border-dark mx-2 mb-2 mt-2">
+            <tr class="text-left">
+                <td rowspan="5" width="30%">
+                    <img src="/Content/images/sanpham/@Model.HINHANH" width="100%" height="100%" />
+                </td>
+                <td>Tên Sản phẩm: <p width="35%" style="font-weight:bold; color:blue">@Model.TENSP</p></td>
+
+            </tr>
+            <tr class="text-left">
+                <td>Loại: <p style="color:blue">@Model.LOAILINHKIEN.TENLOAI</p></td>
+
+            </tr>
+            <tr class="text-left">
+                <td>Mô tả sản phẩm: <p align="justify">@Model.MOTA</p></td>
+
+            </tr>
+            <tr class="text-left">
+                <td>Giá bán: <p style="font-weight:bold; color:red">@string.Format("{0:0.00}", @Model.DONGIA) VNĐ</p></td>
+
+            </tr>
+            <tr>
+                <td align="justify">
+                    <br /><br />
+                    <a href="#">
+                        <input type="submit" value="MUA NGAY" class="btn btn-primary" />
+                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#"><input type="submit" value="MUA TIẾP" class="btn btn-primary" /></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

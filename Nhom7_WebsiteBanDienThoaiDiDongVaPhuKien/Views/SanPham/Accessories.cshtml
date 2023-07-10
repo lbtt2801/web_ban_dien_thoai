@@ -1,0 +1,39 @@
+﻿@using Nhom7_WebsiteBanDienThoaiDiDongVaPhuKien.Models;
+
+@model List<SANPHAM>
+
+@{
+    ViewBag.Title = "Accessories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="col-lg-6 col-md-6">
+            <div class="li-blog-single-item pb-25">
+                <div class="li-blog-banner">
+                    <a href="blog-details-left-sidebar.html"><img width="70%" height="70%" src="~/Content/images/anh/@item.HINHANH" alt=""></a>
+                </div>
+                <div class="li-blog-content">
+                    <div class="li-blog-details">
+                        <h3 class="li-blog-heading pt-25"><a href="blog-details-left-sidebar.html">@item.TENSP</a></h3>
+                        <div class="li-blog-meta">
+                            <a class="author" href="#"><i class="fa fa-user"></i>Admin</a>
+                            <a class="comment" href="#"><i class="fa fa-comment-o"></i> 3 comment</a>
+                            <a class="post-time" href="#"><i class="fa fa-calendar"></i> 10 11 2022</a>
+                        </div>
+                        <p>@item.MOTA</p>
+                        <div class="btn-group">
+                            <a class="btn btn-details" href="@Url.Action("ChiTietSanPham", "SanPham", new { @maSP = item.MASP })">Details</a>
+                            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang", new { @maLK = item.MASP, @strURL = Request.Url.ToString() })">Add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+

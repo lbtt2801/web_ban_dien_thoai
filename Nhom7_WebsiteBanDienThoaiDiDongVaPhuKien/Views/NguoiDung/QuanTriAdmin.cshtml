@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Nhom7_WebsiteBanDienThoaiDiDongVaPhuKien.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "QuanTriAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center; padding-top:10px; font-family:'Times New Roman', Times, serif;"><b>Quản Lý Điện Thoại Và Phụ Kiện</b></h2>
+<p><a href="/NguoiDung/ThemSanPham" class="btn btn-primary" style="background-color:aquamarine; color:darkred; padding-left:20px; font-size:20px; font-weight:40"><b>Thêm Sản Phẩm Mới</b></a></p>
+<table class="table">
+    <tr>
+        <th>
+            Hình Ảnh
+        </th>
+        <th>
+            Tên Sản Phẩm
+        </th>
+        <th>
+            Hãng Sản Xuất
+        </th>
+        <th>
+            Ngày Cập Nhật
+        </th>
+        <th>
+            Đơn Giá
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img style="width:100px; height:100px" src="/Content/images/sanpham/@Html.DisplayFor(modelItem => item.HINHANH)" alt="" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TENSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HANGSX)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYCAPNHAT)
+            </td>
+            <td>
+                @string.Format("{0:0.000}", @Html.DisplayFor(modelItem => item.DONGIA)) VNĐ
+            </td>
+            <td>
+                @Html.ActionLink("Xoá", "XoaSanPham", new { maSP = item.MASP }) &nbsp;&nbsp;|&nbsp;&nbsp;
+                @Html.ActionLink("Sửa", "SuaSanPham", new { maSP = item.MASP })
+            </td>
+        </tr>
+    }
+
+</table>
